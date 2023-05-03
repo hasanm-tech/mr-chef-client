@@ -1,15 +1,23 @@
 import React, { useContext } from 'react';
-import { Button,Navbar,Nav, Container } from 'react-bootstrap';
+import { Navbar,Nav, Container,Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import './Header.css'
 
 const Header = () => {
 
-    const {photoURL,displayName} = useContext(AuthContext) 
-    if(user){
-        console.log(photoURL,displayName)
+    const {user,logOut} = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() => {
+
+        })
+        .catch(error => {
+            console.error(error)
+        })
     }
-    
+
     return (
         <header className='bg-dark'>
             <Container>
@@ -24,12 +32,13 @@ const Header = () => {
                         
                     </Nav>
                     <Nav className='align-items-center'>
-                        <Nav.Link href="#">user</Nav.Link>
-                        <Nav.Link  href="#">
-                            <Button variant='dark'>
-                                <Link to='/login'>login</Link>
-                            </Button>
-                        </Nav.Link>
+                    
+                    {
+                    user ?
+                    <div className='user'> <Image roundedCircle className='userImg' src={user.photoURL} alt="" /> <button className='user-btn'> <Link onClick={handleLogOut}> Logout </Link></button></div> :
+                    <button className='user-btn'> <Link to='/login'>Login </Link> </button>
+                    } 
+                        
                     </Nav>
                     </Navbar.Collapse>
                 </Container>

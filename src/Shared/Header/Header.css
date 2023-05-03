@@ -1,0 +1,15 @@
+.user{ 
+    width: 20p;
+}
+.user img{
+    width: 40px;
+    object-fit: cover;
+    margin: 0 20px;
+}
+.user-btn{
+    background-color: #dc3545;
+}
+.user-btn a{
+    text-decoration: none;
+    color: aliceblue;
+}

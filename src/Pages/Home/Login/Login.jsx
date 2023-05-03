@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import { Form, Link } from 'react-router-dom';
+import { AuthContext } from '../../../Provider/AuthProvider';
+import {Link } from 'react-router-dom';
 import './Login.css'
 
+
+
+
 const Login = () => {
+
+    const {userLogIn,} = useContext(AuthContext)
+
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const pass = form.pass.value;
+        form.reset()
+
+        userLogIn(email,pass)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+     }
     return (
         <div className='login'>
             <Container>
@@ -13,17 +36,17 @@ const Login = () => {
                         <div className="text-center">
                             <h2 className='text-dark fw-bold'>Please Login </h2>
                         </div>
-                        <Form>
+                        <form onSubmit={handleLogin}>
                            <div>
-                                <label htmlFor="">Name</label> <br />
-                                <input type="text" name='name' placeholder='Enter your name ' />
+                                <label htmlFor="">email</label> <br />
+                                <input type="text" name='email' placeholder='Enter your name ' />
                            </div>
                            <div>
                                 <label htmlFor="">PassWord</label> <br />
                                 <input type="password" name='pass' placeholder='Enter your Password ' />
                            </div>
 
-                           <Button variant='dark' className='my-2'>Login</Button>
+                           <button variant='dark' className='my-2'>Login</button>
 
                            <div className="py-5 sign-btn">
                                 <Button variant='danger'>Google Sign In</Button> <br />
@@ -33,7 +56,7 @@ const Login = () => {
                             <div className='redirect'>
                                 <p style={{fontWeight:'500'}}>New to the website,  go to <Link  to='/register'>Register</Link></p>
                             </div>
-                        </Form>
+                        </form>
                     </div>
                 </Col>
             </Row>
