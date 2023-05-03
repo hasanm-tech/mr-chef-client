@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button,Navbar,Nav, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -18,7 +19,9 @@ const Header = () => {
                     <Nav className='align-items-center'>
                         <Nav.Link href="#">user</Nav.Link>
                         <Nav.Link  href="#">
-                            <Button variant='dark'>Login</Button>
+                            <Button variant='dark'>
+                                <Link to='/login'>login</Link>
+                            </Button>
                         </Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
