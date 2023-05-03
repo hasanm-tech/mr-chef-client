@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button,Navbar,Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Header = () => {
+
+    const {photoURL,displayName} = useContext(AuthContext) 
+    if(user){
+        console.log(photoURL,displayName)
+    }
+    
     return (
         <header className='bg-dark'>
             <Container>
