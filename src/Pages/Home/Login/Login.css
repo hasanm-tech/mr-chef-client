@@ -14,10 +14,10 @@ input:focus{
 label{
     font-weight: 500;
     font-size: 18px;
-    color: rgb(16, 16, 16);
+    color: #212529
 }
 input{
-    width: 400px;
+    width: 100%;
     padding: 10px;
     margin: 20px 0;
 }

@@ -10,14 +10,17 @@ const Login = () => {
             <Row>
                 <Col md={6} sm={12} className='mx-auto my-5'>
                     <div className="log-info my-5">
+                        <div className="text-center">
+                            <h2 className='text-dark fw-bold'>Please Login </h2>
+                        </div>
                         <Form>
                            <div>
                                 <label htmlFor="">Name</label> <br />
-                                <input type="text" placeholder='Enter your name ' />
+                                <input type="text" name='name' placeholder='Enter your name ' />
                            </div>
                            <div>
                                 <label htmlFor="">PassWord</label> <br />
-                                <input type="text" placeholder='Enter your Password ' />
+                                <input type="password" name='pass' placeholder='Enter your Password ' />
                            </div>
 
                            <Button variant='dark' className='my-2'>Login</Button>
