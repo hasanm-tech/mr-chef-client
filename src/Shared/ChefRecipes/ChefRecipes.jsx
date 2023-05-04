@@ -14,15 +14,27 @@ const ChefRecipes = () => {
 
     
 
-    const [accepted, setAccept] = useState(false)
+    const [accepted, setAccept] =  useState(false)
+    const [accepted1, setAccept1] = useState(false)
+    const [accepted2, setAccept2] = useState(false)
+
     const handleLike = () => {
-        
-        if(setAccept == true){
-            toast("Wow so easy!")
-        }
+            setAccept(true)
+            toast("loved your recipe !")
         
     }
 
+        const handleLike1 = () => {
+            setAccept1(true)
+            toast("Wow added your recipe!")
+        
+    }
+    
+    const handleLike2 = () => {
+        setAccept2(true)
+        toast("added your fev recipe!")
+
+    }
 
     return (
         <div className='py-5'>
@@ -83,9 +95,9 @@ const ChefRecipes = () => {
                                         </Rating>
                                         <span className='px-2'> {recipes[0]?.rating}</span>
                                     </p>
-                                    <button onClick={handleLike} disabled={true}>
-                                        <FaBookmark   className='text-danger'></FaBookmark>
-                                    </button>
+                                    <button disabled={accepted} onClick={handleLike}>
+                                         <FaBookmark   className='text-danger'> </FaBookmark>
+                                        </button>
                                     </div>
                                     </Card.Footer>
                                 </Card>
@@ -120,9 +132,9 @@ const ChefRecipes = () => {
                                         </Rating>
                                         <span className='px-2'> {recipes[1]?.rating}</span>
                                     </p>
-                                    <button disabled={true} onClick={handleLike}>
-                                        <FaBookmark   className='text-danger'></FaBookmark>
-                                    </button>
+                                    <button disabled={accepted1} onClick={handleLike1}>
+                                         <FaBookmark   className='text-danger'> </FaBookmark>
+                                        </button>
                                     </div>
                                     </Card.Footer>
                                 </Card>
@@ -159,7 +171,7 @@ const ChefRecipes = () => {
                                             <span className='px-2'> {recipes[2]?.rating}</span>
                                         </p>
 
-                                        <button disabled={!accepted} onClick={handleLike}>
+                                        <button disabled={accepted2} onClick={handleLike2}>
                                          <FaBookmark   className='text-danger'> </FaBookmark>
                                         </button>
                                         </div>
