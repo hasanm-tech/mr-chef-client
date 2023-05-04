@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Row, Button, CardGroup, Card } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import { FaBookmark } from 'react-icons/fa';
 import { BsStarFill,BsStar } from "react-icons/bs";
 import Rating from 'react-rating';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ChefRecipes = () => {
 
     const chefInfo = useLoaderData()
     const {chef_name,num_recipes, chef_id,bio, chef_picture,years_of_experience, likes,recipes} = chefInfo;
+
+    
+
+    const [accepted, setAccept] = useState(false)
+    const handleLike = () => {
+        
+        if(setAccept == true){
+            toast("Wow so easy!")
+        }
+        
+    }
+
 
     return (
         <div className='py-5'>
@@ -50,10 +64,13 @@ const ChefRecipes = () => {
                                     {recipes[0]?.ingredients} 
                                     </Card.Text>
 
-                                    <Card.Text className='py-4' style={{height:'450px'}}>
+                                    <Card.Text className='py-4' style={{height:'400px'}}>
                                     <b>cooking method </b> <br />
                                     {recipes[0]?.method} 
                                     </Card.Text>
+                                    
+                                    </Card.Body>
+                                    <Card.Footer>
                                     <div className="recipes-info d-flex align-items-center justify-content-between">
                                     <p className='p-0 m-0'>
                                         <Rating
@@ -66,13 +83,10 @@ const ChefRecipes = () => {
                                         </Rating>
                                         <span className='px-2'> {recipes[0]?.rating}</span>
                                     </p>
-                                    <button>
-                                        <FaBookmark className='text-danger'></FaBookmark>
+                                    <button onClick={handleLike} disabled={true}>
+                                        <FaBookmark   className='text-danger'></FaBookmark>
                                     </button>
                                     </div>
-                                    </Card.Body>
-                                    <Card.Footer>
-                                    <small className="text-muted">Last updated 3 mins ago</small>
                                     </Card.Footer>
                                 </Card>
 
@@ -87,10 +101,13 @@ const ChefRecipes = () => {
                                     {recipes[1]?.ingredients} 
                                     </Card.Text>
 
-                                    <Card.Text className='py-4' style={{height:'450px'}}>
+                                    <Card.Text className='py-4' style={{height:'400px'}}>
                                     <b>cooking method </b> <br />
                                     {recipes[1]?.method} 
                                     </Card.Text>
+                                    
+                                    </Card.Body>
+                                    <Card.Footer>
                                     <div className="recipes-info d-flex align-items-center justify-content-between">
                                     <p className='p-0 m-0'>
                                         <Rating
@@ -103,13 +120,10 @@ const ChefRecipes = () => {
                                         </Rating>
                                         <span className='px-2'> {recipes[1]?.rating}</span>
                                     </p>
-                                    <button>
-                                        <FaBookmark className='text-danger'></FaBookmark>
+                                    <button disabled={true} onClick={handleLike}>
+                                        <FaBookmark   className='text-danger'></FaBookmark>
                                     </button>
                                     </div>
-                                    </Card.Body>
-                                    <Card.Footer>
-                                    <small className="text-muted">Last updated 3 mins ago</small>
                                     </Card.Footer>
                                 </Card>
 
@@ -124,29 +138,31 @@ const ChefRecipes = () => {
                                     {recipes[2]?.ingredients} 
                                     </Card.Text>
 
-                                    <Card.Text className='py-4' style={{height:'450px'}}>
+                                    <Card.Text className='py-4' style={{height:'400px'}}>
                                     <b>cooking method </b> <br />
                                     {recipes[2]?.method} 
                                     </Card.Text>
-                                    <div className="recipes-info d-flex align-items-center justify-content-between">
-                                    <p className='p-0 m-0'>
-                                        <Rating
-                                        initialRating={recipes[2]?.rating}
-                                        readonly
-                                        placeholderSymbol={<BsStarFill></BsStarFill>}
-                                        emptySymbol={<BsStar></BsStar>}
-                                        fullSymbol={<BsStarFill></BsStarFill>}
-                                        >
-                                        </Rating>
-                                        <span className='px-2'> {recipes[2]?.rating}</span>
-                                    </p>
-                                    <button>
-                                        <FaBookmark className='text-danger'></FaBookmark>
-                                    </button>
-                                    </div>
                                     </Card.Body>
+                                    
+
                                     <Card.Footer>
-                                    <small className="text-muted">Last updated 3 mins ago</small>
+                                        <div className="recipes-info d-flex align-items-center justify-content-between">
+                                        <p className='p-0 m-0'>
+                                            <Rating
+                                            initialRating={recipes[2]?.rating}
+                                            readonly
+                                            placeholderSymbol={<BsStarFill></BsStarFill>}
+                                            emptySymbol={<BsStar></BsStar>}
+                                            fullSymbol={<BsStarFill></BsStarFill>}
+                                            >
+                                            </Rating>
+                                            <span className='px-2'> {recipes[2]?.rating}</span>
+                                        </p>
+
+                                        <button disabled={!accepted} onClick={handleLike}>
+                                         <FaBookmark   className='text-danger'> </FaBookmark>
+                                        </button>
+                                        </div>
                                     </Card.Footer>
                                 </Card>
 

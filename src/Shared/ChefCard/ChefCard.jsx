@@ -3,6 +3,7 @@ import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import './ChefCard.css'
 import { Link } from 'react-router-dom';
 
+
 const ChefCard = ({c}) => {
 
         const {chef_name,num_recipes, chef_id, chef_picture,years_of_experience, likes} = c;
