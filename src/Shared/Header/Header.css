@@ -13,3 +13,15 @@
     text-decoration: none;
     color: aliceblue;
 }
+.menu a {
+    text-decoration:  none;
+    font-size: 18px;
+    font-weight: 500;
+    color: aliceblue !important;
+}
+menu.default{
+    color: blueviolet;
+}
+menu.active.active{
+    color: #dc3545 !important;
+}

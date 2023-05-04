@@ -7,6 +7,7 @@ import Register from '../Pages/Register/Register';
 import AuthProvider from '../Provider/AuthProvider';
 import ChefLayout from '../Layout/ChefLayout/ChefLayout';
 import ChefRecipes from '../Shared/ChefRecipes/ChefRecipes';
+import BLog from '../Pages/BLog/BLog';
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
         {
           path: '/register',
           element: <Register></Register>,
+        },
+        {
+          path: '/blog',
+          element: <BLog></BLog>
         }
       ]
     },

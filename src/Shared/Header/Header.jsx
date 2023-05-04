@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Navbar,Nav, Container,Image } from 'react-bootstrap';
+import { Navbar,Nav, Container,Image , NavLink} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import './Header.css'
@@ -19,16 +19,23 @@ const Header = () => {
     }
 
     return (
-        <header className='bg-dark'>
+        <header className='bg-dark py-2'>
             <Container>
             <Navbar collapseOnSelect expand="lg"  variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Mr Chef </Navbar.Brand>
+                    <Navbar.Brand href="/">Mr Chef </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="m-auto">
-                        <Nav.Link href="#features">Home</Nav.Link>
-                        <Nav.Link href="#pricing">BLog</Nav.Link>
+                    <Nav className="m-auto menu">
+                        <NavLink to={'/'} className={({isActive}) => 
+                        isActive ? 'active' : 'default'}>
+                            Home
+                        </NavLink>
+                        <NavLink to={'/blog'} className={({isActive}) => 
+                        isActive ? 'active' : 'default'
+                    }>
+                               Blog
+                        </NavLink>
                         
                     </Nav>
                     <Nav className='align-items-center'>
