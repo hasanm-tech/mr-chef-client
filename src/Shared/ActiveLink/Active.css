@@ -1,3 +1,6 @@
 .active{
-    color: black;
+    color: rgb(181, 82, 82);
+}
+.default{
+    color: aqua;
 }

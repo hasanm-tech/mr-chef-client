@@ -3,6 +3,7 @@ import { Navbar,Nav, Container,Image , NavLink} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import './Header.css'
+import ActiveLink from './../ActiveLink/ActiveLink';
 
 const Header = () => {
 
@@ -27,16 +28,9 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="m-auto menu">
-                        <NavLink to={'/'} className={({isActive}) => 
-                        isActive ? 'active' : 'default'}>
-                            Home
-                        </NavLink>
-                        <NavLink to={'/blog'} className={({isActive}) => 
-                        isActive ? 'active' : 'default'
-                    }>
-                               Blog
-                        </NavLink>
-                        
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/blog">Blog</Nav.Link>
+                      
                     </Nav>
                     <Nav className='align-items-center'>
                     

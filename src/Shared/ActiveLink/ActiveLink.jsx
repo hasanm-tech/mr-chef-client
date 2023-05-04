@@ -1,13 +1,15 @@
 import React from 'react';
+import './Active.css'
+import { NavLink } from 'react-bootstrap';
 
-const ActiveLink = ({to}) => {
+const ActiveLink = ({to,children}) => {
     return (
         <NavLink
         to={to}
         className={({isActive}) => 
-        isActive ? 'active' : 'default'}
+        isActive ? 'active' : ''}
         >
-
+            {children}
             
         </NavLink>
 
