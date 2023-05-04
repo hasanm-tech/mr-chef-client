@@ -1,0 +1,39 @@
+.card-chef{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+.card-info ul li{
+    text-align: center !important;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.single-card{
+    position: relative;
+}
+.likes{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .card-chef{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .single-card{
+        display: flex;
+        justify-content: center;
+    }
+  }
+
+  @media only screen and (max-width: 992px) and (min-width: 768px) {
+    .card-chef{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .single-card{
+        display: flex;
+        justify-content: center;
+    }
+  }

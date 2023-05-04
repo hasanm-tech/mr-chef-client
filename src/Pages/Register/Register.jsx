@@ -64,12 +64,12 @@ const Register = () => {
 
                        <div>
                             <label htmlFor="">email </label> <br />
-                            <input type="text" name='email' placeholder='Enter your photo url ' />
+                            <input type="text" required name='email' placeholder='Enter your photo url ' />
                        </div>
 
                        <div>
                             <label htmlFor="" >PassWord</label> <br />
-                            <input type="password" name='pass'  placeholder='Enter your Password ' />
+                            <input type="password" required name='pass'  placeholder='Enter your Password ' />
                        </div>
 
                        <button variant='dark' className='my-2'>Register</button>
