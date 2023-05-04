@@ -8,7 +8,7 @@ import './Who.css'
 const WhoWeAre = () => {
     return (
         <Container className='py-5 mx-auto text-center' >
-            <h2>Who We Are</h2>
+            <h2 className='text-dark'>Who We Are</h2>
             <Row className='py-5'> 
                 <Col md='4' col='12'className='who'>
                     <img  className='w-100'  src={one} alt="" />

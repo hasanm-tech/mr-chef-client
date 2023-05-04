@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ChefCard from '../ChefCard/ChefCard';
 import { Col, Container, Row } from 'react-bootstrap';
+import './Chef.css'
 
 
 const Chef = () => {
@@ -15,9 +16,10 @@ const Chef = () => {
 
     return (
 
-        <Container className='py-5'>
+        <div className="chef">
+            <Container className='py-5'>
             <Row className='py-5 text-center'>
-                <h2> Our Chef</h2>
+                <h2 className='text-dark'> Our Chef </h2>
                 <Col className='py-5'>
                     <div className='card-chef'>
                         {
@@ -27,6 +29,7 @@ const Chef = () => {
                 </Col>
             </Row>
         </Container>
+        </div>
     );
 };
 
