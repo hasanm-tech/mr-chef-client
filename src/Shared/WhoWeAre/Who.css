@@ -2,3 +2,7 @@
     height: 250px;
     object-fit: cover;
 }
+
+.who h2 {
+    color: #212529 !important;
+}
