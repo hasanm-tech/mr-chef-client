@@ -4,7 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import { FaBookmark } from 'react-icons/fa';
 import { BsStarFill,BsStar } from "react-icons/bs";
 import Rating from 'react-rating';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ChefRecipes = () => {
