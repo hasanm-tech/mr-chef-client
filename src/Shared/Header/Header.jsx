@@ -35,7 +35,7 @@ const Header = () => {
                     
                     {
                     user ?
-                    <div className='user'> <Image roundedCircle className='userImg' src={user.photoURL} alt="" /> <button className='user-btn'> <Link onClick={handleLogOut}> Logout </Link></button></div> :
+                    <div className='user'> <Image title={user.displayName} roundedCircle className='userImg' src={user.photoURL} alt="" /> <button className='user-btn'> <Link onClick={handleLogOut}> Logout </Link></button></div> :
                     <button className='user-btn'> <Link to='/login'>Login </Link> </button>
                     } 
                         

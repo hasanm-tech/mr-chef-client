@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
-import { updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
 
 const Register = () => {
 
     const {createUser,updateUserData} = useContext(AuthContext);
-
+   const [error,setError] = useState(null)
     
     const handleRegister = e => {
         e.preventDefault();
@@ -23,13 +23,24 @@ const Register = () => {
             console.log(loggedUser)
             updateUserData(result.user, name,photo)
         })
-
         .catch(error => {
             console.error(error)
         })
 
+        if(email == ''){
+            setError('provide a valid email')
+        } 
+        else if(pass == ''){
+            setError('provide a valid password ')
+        }
+        else if(pass.length < 6){
+            setError('password length should be at least 6')
+        }
         
     }
+
+
+    
 
     return (
         <div className='login'>
@@ -62,14 +73,12 @@ const Register = () => {
                        </div>
 
                        <button variant='dark' className='my-2'>Register</button>
-
-                       <div className="py-5 sign-btn">
-                            <Button variant='danger'>Google Sign In</Button> <br />
-                            <Button variant='dark'>Github  Sign In</Button>
-                       </div>
                         
                         <div className='redirect'>
                             <p style={{fontWeight:'500'}}>New to the website,  go to <Link  to='/login'>Login</Link></p>
+                            <br /><br />
+
+                            <p className='fw-bold text-danger'>{error}</p>
                         </div>
                     </form>
 

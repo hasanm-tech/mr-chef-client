@@ -1,15 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import {Link } from 'react-router-dom';
 import './Login.css'
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 
 
 
 const Login = () => {
 
-    const {userLogIn,} = useContext(AuthContext)
+    const {userLogIn,auth} = useContext(AuthContext)
+      const [error, setError] = useState(null)
+      const [success, setSuccess] = useState(null)
+    const provider = new GoogleAuthProvider();
+  
 
     const handleLogin = e => {
         e.preventDefault();
@@ -22,11 +27,30 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser)
+            setSuccess('user login successful')
+            setError('')
         })
         .catch(error => {
-            console.error(error)
+            console.log(error)
+            setError(error.message)
         })
      }
+
+     const handleGoogleSignIn = () => {
+        return signInWithPopup(auth,provider)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            setSuccess('user login successful')
+            setError('')
+        })
+        .catch(error => {
+            console.log(error)
+            setError(error.message)
+        })
+    } 
+
+
     return (
         <div className='login'>
             <Container>
@@ -49,12 +73,16 @@ const Login = () => {
                            <button variant='dark' className='my-2'>Login</button>
 
                            <div className="py-5 sign-btn">
-                                <Button variant='danger'>Google Sign In</Button> <br />
+                                <Button onClick={handleGoogleSignIn} variant='danger'>Google Sign In</Button> <br />
                                 <Button variant='dark'>Github  Sign In</Button>
                            </div>
                             
                             <div className='redirect'>
                                 <p style={{fontWeight:'500'}}>New to the website,  go to <Link  to='/register'>Register</Link></p>
+                                <br /><br />
+
+                            <p className='fw-bold text-danger'>{error}</p>
+                            <p className='fw-bold text-success'>{success}</p>
                             </div>
                         </form>
                     </div>
