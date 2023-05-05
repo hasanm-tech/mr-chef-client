@@ -6,6 +6,7 @@ import { BsStarFill,BsStar } from "react-icons/bs";
 import Rating from 'react-rating';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './ChefRecipes.css'
 
 const ChefRecipes = () => {
 
