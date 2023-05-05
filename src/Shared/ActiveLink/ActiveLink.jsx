@@ -1,13 +1,13 @@
 import React from 'react';
 import './Active.css'
-import { NavLink } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 const ActiveLink = ({to,children}) => {
     return (
         <NavLink
         to={to}
         className={({isActive}) => 
-        isActive ? 'active' : ''}
+        isActive ? 'active' : 'default'}
         >
             {children}
             

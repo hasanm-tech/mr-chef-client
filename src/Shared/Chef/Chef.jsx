@@ -19,7 +19,7 @@ const Chef = () => {
         <div className="chef">
             <Container className='py-5'>
             <Row className='py-5 text-center'>
-                <h2 className='text-dark'> Our Chef </h2>
+                <h2 className='text-dark'> Our Chinese Chef </h2>
                 <Col className='py-5'>
                     <div className='card-chef'>
                         {

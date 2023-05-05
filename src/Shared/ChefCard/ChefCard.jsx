@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import './ChefCard.css'
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazy-load';
 
 
 const ChefCard = ({c}) => {
@@ -11,7 +12,11 @@ const ChefCard = ({c}) => {
         <Row>
             <Col className='single-card'>
             <Card style={{ width: '20rem' }}>
+
+            <LazyLoad height={250}>
                 <Card.Img variant="top" src={chef_picture} />
+            </LazyLoad>
+                
                 <Card.Body>
                     <Card.Title style={{fontSize:"26px", fontWeight:'600'}}>{chef_name}</Card.Title>
                     <div className="py-4 card-info d-flex justify-content-center align-items-center">
@@ -23,7 +28,7 @@ const ChefCard = ({c}) => {
                         <li className='list-unstyled likes'> <Button variant='danger'>likes {likes}</Button> </li>
                     </ul>
                     </div>
-                    <Button className='my-2' variant="danger">
+                    <Button className='my-2 chefs-recipe' variant="danger">
                         <Link to={`/chef/${chef_id}`}> View Recipes </Link>
                     </Button>
                 </Card.Body>

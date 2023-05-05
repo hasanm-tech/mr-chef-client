@@ -41,7 +41,7 @@ const ChefRecipes = () => {
             <div className="chef_info mx-auto">
                 <Container className='py-5 mx-auto d-flex align-items-center flex-column'>
                     <Row>
-                        <Col md='8' sm='12 mx-auto text-center single-card'>
+                        <Col md='8' sm='12 mx-auto text-center'>
                         <img style={{width:'80%', height: "400px", objectFit:'cover' }} src={chef_picture} alt="" />
 
                         <div className='chef-details py-5'>
@@ -60,10 +60,11 @@ const ChefRecipes = () => {
 
 
                         </div>
+                        </Col>
+                    </Row>
+                    <div className="recipes py-3">
 
-                        <div className="recipes py-3">
-
-                            <h1 className='py-4'>Recipes  - </h1>
+                            <h1 className='py-5'>Recipes  Of Chinese Food  </h1>
 
                             <CardGroup>
                                 <Card>
@@ -187,9 +188,6 @@ const ChefRecipes = () => {
 
 
                         </div>
-
-                        </Col>
-                    </Row>
                 </Container>
             </div>
         </div>

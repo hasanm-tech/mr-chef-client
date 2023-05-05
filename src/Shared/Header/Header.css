@@ -1,5 +1,5 @@
 .user{ 
-    width: 20p;
+    width: 200px;
 }
 .user img{
     width: 40px;
@@ -17,14 +17,8 @@
     text-decoration:  none;
     font-size: 18px;
     font-weight: 500;
-    color: aliceblue !important;
+    margin: 0 20px;
 }
-menu.default{
-    color: blueviolet;
-}
-menu.active.active{
-    color: #dc3545 !important;
-}
-.active{
-    color: #dc3545 !important;
+.menu a:hover{
+    color: aliceblue;
 }

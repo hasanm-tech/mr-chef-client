@@ -7,7 +7,7 @@ const Banner = () => {
         <div className='py-5 banner'>
             <Container>
             <Row>
-                <Col md={6} className='mx-auto'>
+                <Col md={6} className='m-auto ban'>
                     <div className='py-5 banner-info'>
                         <h2>Your  <br />
                             Favorite <br />

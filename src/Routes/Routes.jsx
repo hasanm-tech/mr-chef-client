@@ -8,19 +8,22 @@ import AuthProvider from '../Provider/AuthProvider';
 import ChefLayout from '../Layout/ChefLayout/ChefLayout';
 import ChefRecipes from '../Shared/ChefRecipes/ChefRecipes';
 import BLog from '../Pages/BLog/BLog';
+import Error from '../Pages/Error/Error';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
+  
     {
       path: "/",
       element: <MainLayout></MainLayout>,
       children: [
         {
             path: '/',
-            element: <Home></Home>
+            element: <Home></Home>,
         },
         {
           path: '/login',
-          element: <Login></Login>
+          element: <Login></Login>,
         },
         {
           path: '/register',
@@ -28,22 +31,28 @@ const router = createBrowserRouter([
         },
         {
           path: '/blog',
-          element: <BLog></BLog>
-        }
+          element: <BLog></BLog>,
+        },
+        {
+          path: '*',
+          element: <Error></Error>
+        },
       ]
     },
     {
       path: 'chef',
-      element: <ChefLayout></ChefLayout>,
+      element: <PrivateRoute><ChefLayout></ChefLayout></PrivateRoute>,
       children: [
         {
           path: ':id',
           element: <ChefRecipes></ChefRecipes>,
-          loader: ({params}) => fetch(`https://mr-chef-server-hasanm-tech.vercel.app/chef/${params.id}`)
-
-        }
+          loader: ({params}) => fetch(`https://mr-chef-server-hasanm-tech.vercel.app/chef/${params.id}`),
+        },
+        
       ]
-    }
+    },
+    
+  
   ]);
 
 export default router;

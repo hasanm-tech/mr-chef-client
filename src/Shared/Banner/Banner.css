@@ -3,14 +3,20 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .banner-info{
     background-color: rgba(240, 248, 255, 0.26);
     padding: 50px;
+    
 }
 .banner-info p{
-    font-size: 20px;
-
+    font-size: 22px;
+    color: black;
+    font-weight: 500;
 }
 .banner-info h2{
     font-size: 60px;

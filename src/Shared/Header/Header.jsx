@@ -8,6 +8,8 @@ import ActiveLink from './../ActiveLink/ActiveLink';
 const Header = () => {
 
     const {user,logOut} = useContext(AuthContext);
+    
+    console.log(user)
 
     const handleLogOut = () => {
         logOut()
@@ -28,16 +30,24 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="m-auto menu">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/blog">Blog</Nav.Link>
+                        <ActiveLink to='/'> Home</ActiveLink>
+                        <ActiveLink to='/blog'>Blog</ActiveLink>
                       
                     </Nav>
                     <Nav className='align-items-center'>
                     
                     {
+
                     user ?
-                    <div className='user'> <Image title={user.displayName} roundedCircle className='userImg' src={user.photoURL ? user.photoURL : ''} alt="" /> <button className='user-btn'> <Link onClick={handleLogOut}> Logout </Link></button></div> :
+                    <div className='user'> 
+                    
+                    <Image title={user.displayName} roundedCircle className='userImg' src={user.photoURL?user.photoURL : ''} alt="" /> 
+                    
+                    <button className='user-btn'> <Link onClick={handleLogOut}> Logout </Link></button>
+                    
+                    </div> :
                     <button className='user-btn'> <Link to='/login'>Login </Link> </button>
+
                     } 
                         
                     </Nav>

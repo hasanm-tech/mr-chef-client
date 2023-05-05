@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { AuthContext } from '../../../Provider/AuthProvider';
-import {Link } from 'react-router-dom';
+import {Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
@@ -16,6 +16,10 @@ const Login = () => {
       
     const provider = new GoogleAuthProvider();
     const userProvider = new GithubAuthProvider();
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate()
   
 
     const handleLogin = e => {
@@ -29,6 +33,7 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser)
+            navigate(from, {replace : true})
             setSuccess('user login successful')
             setError('')
         })
@@ -43,6 +48,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user)
+            navigate(from, {replace : true})
             setSuccess('user login successful')
             setError('')
         })
@@ -57,6 +63,7 @@ const Login = () => {
         return signInWithPopup(auth,userProvider)
         .then(result => {
             const user = result.user;
+            navigate(from, {replace : true})
             console.log(user)
             setSuccess('user login successful')
             setError('')
